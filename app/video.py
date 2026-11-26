@@ -108,10 +108,9 @@ def assemble(images: list[dict], audios: list[dict], srt_path: Path | None,
         *inputs,
         "-filter_complex", filter_complex,
         "-map", "[outv]", "-map", "[outa]",
-        "-c:v", "libx264", "-preset", "ultrafast", "-tune", "stillimage",
-        "-c:a", "aac", "-b:a", "128k",
+        "-c:v", "libx264", "-preset", "ultrafast",
+        "-c:a", "aac", "-b:a", "64k",
         "-t", f"{total_dur:.2f}",
-        "-movflags", "+faststart",
         str(dest),
     ]
 
